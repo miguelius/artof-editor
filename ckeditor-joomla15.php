@@ -195,7 +195,7 @@ class plgEditorArtofEditor extends JPlugin
 
 		$doc->addStyleDeclaration("table.admintable {width: 100%;}");
 
-  		$result = '<script type="text/javascript" src="'.JURI::root().'plugins/editors/artofeditor/ck/ckeditor.js"></script>';
+  		$result = '<script type="text/javascript" src="'.JURI::root().'plugins/editors/ckeditor-joomla15/ck/ckeditor.js"></script>';
 
   		return $result;
 	}
