@@ -14,14 +14,14 @@
 	<description>CK Editor 4.6.2 for Joomla! 1.5 based on artofeditor (https://github.com/eddieajau/artof-editor)</description>
 
 	<files>
-		<filename plugin="ckeditor-joomla15">ckeditor-joomla15.php</filename>
-		<folder>ckeditor-joomla15</folder>
+		<filename plugin="ckeditorjoomla">ckeditorjoomla.php</filename>
+		<folder>ckeditorjoomla</folder>
 	</files>
 
-	<params addpath="/plugins/editors/ckeditor-joomla15/elements">
+	<params addpath="/plugins/editors/ckeditorjoomla/elements">
 		<param type="dummy" />
 
-		<param name="language" type="list" default="en"
+		<param name="language" type="list" default="es"
 			label="PLG_AOEDITOR_LANGUAGE_LABEL" description="PLG_AOEDITOR_LANGUAGE_DESC">
 			<option value="af">PLG_AOEDITOR_L_AFRIKAANS</option>
 			<option value="ar">PLG_AOEDITOR_L_ARABIC</option>
@@ -113,7 +113,7 @@
 			<option value="moono-lisa">PLG_AOEDITOR_OPTION_MOONO_LISA</option>
 		</param>
 
-		<param name="bgcolor" type="text" default="#FFFFFF"
+		<param name="bgcolor" type="text" default="#69cbfa"
 			label="PLG_AOEDITOR_BGCOLOR_LABEL" description="PLG_AOEDITOR_BGCOLOR_DESC" />
 
 	</params>

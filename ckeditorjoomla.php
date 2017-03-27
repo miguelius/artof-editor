@@ -2,7 +2,7 @@
 /**
  * @version		$Id: ckeditor.php 1.2 28-09-2009 Danijar
  * @package		NewLifeInIT
- * @subpackage	plg_editors_artofeditor
+ * @subpackage	plg_editors_ckeditor_joomla
  * @copyright	Copyright 2005 - 2011 New Life in IT Pty Ltd. All rights reserved.
  * @copyright	Based on work Copyright 2009 CMSSpace <http://www.cmsspace.com>
  * @license		GNU General Public License version 2 or later.
@@ -15,10 +15,10 @@ jimport('joomla.event.plugin');
 
 /**
  * @package		NewLifeInIT
- * @subpackage	plg_editors_artofeditor
+ * @subpackage	plg_editors_ckeditor_joomla
  * @since		1.0.1
  */
-class plgEditorArtofEditor extends JPlugin
+class plgEditorCkeditorjoomla extends JPlugin
 {
 	/**
 	 * Get's a sanitised name for the editor.
@@ -62,7 +62,7 @@ class plgEditorArtofEditor extends JPlugin
 			}
 		}
 
-		if (is_array($buttons) || (is_bool($buttons) && $buttons)) {
+		if (!empty($buttons)) {
 			$results = $this->_subject->getButtons($id, $buttons);
 			$return .= "\n<div id=\"editor-xtd-buttons\">\n";
 
@@ -100,7 +100,7 @@ class plgEditorArtofEditor extends JPlugin
 		$html = '
 		<textarea name="'.$name.'" id="'.$id.'" cols="'.$col.'" rows="'.$row.'" style="width:'.$width.'; height:'.$height.'">' .$content.   '</textarea>';
 
-		$user = JFactory::getUser();
+		$user = &JFactory::getUser();
 
 		$fr = '';
 		if (!strpos(JPATH_BASE,'administrator')) {
@@ -112,8 +112,8 @@ class plgEditorArtofEditor extends JPlugin
 		{
 			baseHref:  '".JURI::root()."',
 			skin :     '".$this->params->get('skin',	'kama')."',
-			language : '".$this->params->get('language','en')."',
-			uiColor:   '".$this->params->get('bgcolor',	'#6B6868')."',
+			language : '".$this->params->get('language',    'es')."',
+			uiColor:   '".$this->params->get('bgcolor',	'#69cbfa')."',
 			";
 
   		if (stripos($this->params->get('toolbar'.$fr), 'Custom') !== false) {
@@ -172,7 +172,8 @@ class plgEditorArtofEditor extends JPlugin
 			$js		= "
 			function jInsertEditorText(text, editor)
 			{
-				CKEDITOR.instances[editor].insertHtml(text);
+				var element = CKEDITOR.dom.element.createFromHtml( text );
+				CKEDITOR.instances[editor].insertElement(element);
 				return true;
 			}";
 
@@ -195,7 +196,7 @@ class plgEditorArtofEditor extends JPlugin
 
 		$doc->addStyleDeclaration("table.admintable {width: 100%;}");
 
-  		$result = '<script type="text/javascript" src="'.JURI::root().'plugins/editors/ckeditor-joomla15/ck/ckeditor.js"></script>';
+  		$result = '<script type="text/javascript" src="'.JURI::root().'plugins/editors/ckeditorjoomla/ck/ckeditor.js"></script>';
 
   		return $result;
 	}

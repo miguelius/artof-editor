@@ -35,4 +35,11 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
+
+	config.scayt_autoStartup = true;
+	config.scayt_sLang = 'es_ES';
+
+	config.extraPlugins = 'find';
+
+
 };
